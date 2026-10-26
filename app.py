@@ -3,11 +3,10 @@ import mysql.connector
 from mysql.connector import Error
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, date
+import os
 
 
 app = Flask(__name__)
-
-app.secret_key = "careerai360-secret-key-change-this"
 
 MCQ_QUESTIONS = [
     {
@@ -107,15 +106,13 @@ MCQ_QUESTIONS = [
 # =========================================================
 # DATABASE CONNECTION
 # =========================================================
-import os
-
 def get_db_connection():
     return mysql.connector.connect(
         host=os.getenv("MYSQL_HOST", "localhost"),
         port=int(os.getenv("MYSQL_PORT", "3306")),
         user=os.getenv("MYSQL_USER", "root"),
         password=os.getenv("MYSQL_PASSWORD", ""),
-        database=os.getenv("MYSQL_DATABASE", "careerai360"),
+        database=os.getenv("MYSQL_DATABASE", "defaultdb"),
         connection_timeout=15
     )
 
