@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Register - CareerAI360{% endblock %}
+
+{% block content %}
+<div class="card form-card">
+    <h2>Create Account</h2>
+    <p>Start your CareerAI360 journey.</p>
+
+    <form method="POST">
+        <label>Name</label>
+        <input type="text" name="name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <button class="btn" type="submit">Register</button>
+    </form>
+
+    <p>Already have an account?
+        <a href="{{ url_for('login') }}">Login</a>
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,86 @@
+
+{% extends "base.html" %}
+
+{% block title %}Quick Mock Interview - CareerAI360{% endblock %}
+{% block page_name %}Quick Mock Interview{% endblock %}
+
+{% block content %}
+
+<div class="interview-box">
+    <h1>🎤 Quick Mock Interview</h1>
+    <p>Practice your skills with five interview questions.</p>
+
+    <form method="GET" action="{{ url_for('quick_interview') }}">
+        <label for="skill">Choose a skill:</label>
+        <select name="skill" id="skill" onchange="this.form.submit()">
+            <option value="Python" {% if skill == 'Python' %}selected{% endif %}>Python</option>
+            <option value="SQL" {% if skill == 'SQL' %}selected{% endif %}>SQL</option>
+            <option value="HTML" {% if skill == 'HTML' %}selected{% endif %}>HTML</option>
+        </select>
+    </form>
+
+    {% if result is not none %}
+    <div class="interview-result">
+        <h2>Interview Result</h2>
+        <h3>{{ result.score }}%</h3>
+        <p>You answered {{ result.answered }} out of 5 questions.</p>
+        <p>This score measures completion, not answer correctness.</p>
+        <a href="{{ url_for('quick_interview', skill=skill) }}" class="btn">
+            Try Again
+        </a>
+    </div>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('quick_interview') }}">
+        <input type="hidden" name="skill" value="{{ skill }}">
+
+        {% for question in questions %}
+        <div class="interview-question">
+            <label for="answer{{ loop.index0 }}">
+                <strong>Question {{ loop.index }}:</strong>
+                {{ question }}
+            </label>
+
+            <textarea
+                id="answer{{ loop.index0 }}"
+                name="answer{{ loop.index0 }}"
+                rows="3"
+                placeholder="Type your answer..."
+            ></textarea>
+        </div>
+        {% endfor %}
+
+        <button type="submit" class="btn">Submit Interview</button>
+    </form>
+</div>
+
+<style>
+.interview-box {
+    max-width: 800px;
+    margin: 25px auto;
+    padding: 24px;
+    background: white;
+    border-radius: 16px;
+}
+.interview-box select,
+.interview-question textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+.interview-question {
+    margin-top: 20px;
+}
+.interview-result {
+    margin: 20px 0;
+    padding: 18px;
+    background: #fff0f6;
+    border-radius: 12px;
+}
+</style>
+
+{% endblock %}

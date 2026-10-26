@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Interview Results - CareerAI360{% endblock %}
+
+{% block content %}
+<h1>📋 Interview Results</h1>
+<br>
+
+{% if results %}
+<table>
+    <tr>
+        <th>Type</th>
+        <th>Score</th>
+        <th>Date</th>
+        <th>Feedback</th>
+    </tr>
+
+    {% for result in results %}
+    <tr>
+        <td>{{ result.interview_type }}</td>
+        <td>{{ result.score }}%</td>
+        <td>{{ result.interview_date }}</td>
+        <td>{{ result.feedback }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<div class="card">
+    <p>No interview results yet.</p>
+    <a class="btn" href="{{ url_for('interview') }}">Start Interview</a>
+</div>
+{% endif %}
+{% endblock %}

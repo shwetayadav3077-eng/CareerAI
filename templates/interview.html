@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}AI Mock Interview - CareerAI360{% endblock %}
+
+{% block content %}
+<h1>🎤 AI Mock Interview</h1>
+<p>Answer the questions in your own words and submit the interview.</p>
+<br>
+
+<form method="POST">
+
+{% for question in questions %}
+<div class="card">
+    <h3>Question {{ loop.index }}</h3>
+    <p><strong>Skill:</strong> {{ question.skill }}</p>
+    <p>{{ question.question }}</p>
+
+    <textarea
+        name="answer_{{ question.question_id }}"
+        placeholder="Write your answer here..."
+        required></textarea>
+</div>
+<br>
+{% endfor %}
+
+<button class="btn" type="submit">Submit Interview</button>
+
+</form>
+{% endblock %}

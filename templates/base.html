@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}CareerAI360{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}?v=6">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+
+        <!-- LOGO -->
+        <div class="logo-area">
+            <div class="logo-icon">🧭</div>
+
+            <div>
+                <div class="logo-name">CareerAI360</div>
+                <div class="logo-text">Career Guidance</div>
+            </div>
+        </div>
+
+        <!-- SIDEBAR HEADING -->
+        <div class="sidebar-title">YOUR SPACE</div>
+
+        <!-- NAVIGATION MENU -->
+        <nav class="sidebar-menu">
+
+            <!-- DASHBOARD -->
+            <a href="{{ url_for('dashboard') }}"
+               class="{% if request.endpoint == 'dashboard' %}active{% endif %}">
+                <span>▦</span>
+                Overview
+            </a>
+
+            <!-- MY SKILLS -->
+            <a href="{{ url_for('skills') }}"
+               class="{% if request.endpoint == 'skills' %}active{% endif %}">
+                <span>⚡</span>
+                My Skills
+            </a>
+
+            <!-- SKILL GAP -->
+            <a href="{{ url_for('skill_gap') }}"
+               class="{% if request.endpoint == 'skill_gap' %}active{% endif %}">
+                <span>◎</span>
+                Skill Gap
+            </a>
+
+            <!-- CAREERS -->
+            <a href="{{ url_for('careers') }}"
+               class="{% if request.endpoint == 'careers' %}active{% endif %}">
+                <span>💼</span>
+                Careers
+            </a>
+
+            <!-- COURSES -->
+            <a href="{{ url_for('courses') }}"
+               class="{% if request.endpoint == 'courses' %}active{% endif %}">
+                <span>▣</span>
+                Courses
+            </a>
+
+            <!-- LEARNING ROADMAP -->
+            <a href="{{ url_for('roadmap', skill='Python') }}"
+               class="{% if request.endpoint == 'roadmap' %}active{% endif %}">
+                <span>◉</span>
+                Roadmap
+            </a>
+          
+            <!-- NEW MCQ INTERVIEW -->
+            <a href="{{ url_for('mcq_interview') }}"
+               class="{% if request.endpoint == 'mcq_interview' %}active{% endif %}">
+                <span>📝</span>
+                MCQ Interview
+            </a>
+
+        </nav>
+
+        <!-- SIDEBAR BOTTOM -->
+        <div class="sidebar-bottom">
+
+            <!-- PROFILE -->
+            <a href="{{ url_for('profile') }}"
+               class="profile-link {% if request.endpoint == 'profile' %}active{% endif %}">
+                <span>♙</span>
+                Profile
+            </a>
+
+            <!-- USER INFORMATION -->
+            <div class="user-box">
+
+                <div class="user-avatar">
+                    {{ session.get('user_name', 'S')[0]|upper }}
+                </div>
+
+                <div class="user-details">
+                    <strong>
+                        {{ session.get('user_name', 'Student') }}
+                    </strong>
+
+                    <small>CareerAI360 Student</small>
+                </div>
+
+            </div>
+
+            <!-- LOGOUT -->
+            <a href="{{ url_for('logout') }}" class="logout-button">
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN AREA -->
+    <div class="main-area">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <!-- BREADCRUMB -->
+            <div class="breadcrumb">
+                <span>CareerAI360</span>
+                <b>›</b>
+
+                <strong>
+                    {% block page_name %}Dashboard{% endblock %}
+                </strong>
+            </div>
+
+            <!-- TOP RIGHT USER INFORMATION -->
+            <div class="topbar-right">
+
+                <div class="top-user-avatar">
+                    {{ session.get('user_name', 'S')[0]|upper }}
+                </div>
+
+                <strong>
+                    {{ session.get('user_name', 'Student') }}
+                </strong>
+
+            </div>
+
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <main class="content-area">
+
+            <!-- FLASH MESSAGES -->
+            {% with messages = get_flashed_messages() %}
+
+                {% if messages %}
+
+                    {% for message in messages %}
+
+                        <div class="message">
+                            {{ message }}
+                        </div>
+
+                    {% endfor %}
+
+                {% endif %}
+
+            {% endwith %}
+
+            <!-- CHILD TEMPLATE CONTENT -->
+            {% block content %}{% endblock %}
+
+        </main>
+
+    </div>
+
+</div>
+
+</body>
+</html>

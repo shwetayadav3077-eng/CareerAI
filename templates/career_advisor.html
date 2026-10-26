@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Career Advisor - CareerAI360{% endblock %}
+
+{% block content %}
+<h1>🤖 Career Advisor</h1>
+
+<div class="card">
+    <h3>Your Skills</h3>
+    {% if user_skills %}
+        <p>{{ user_skills | join(", ") }}</p>
+    {% else %}
+        <p>No skills added yet.</p>
+    {% endif %}
+</div>
+
+<br>
+<h2>Career Matches</h2>
+<br>
+
+<div class="grid">
+{% for career in recommendations %}
+    <div class="card">
+        <h3>{{ career.career_name }}</h3>
+        <p><strong>Category:</strong> {{ career.category }}</p>
+        <p><strong>Match:</strong> {{ career.percentage }}%</p>
+        <div class="progress-box">
+            <div class="progress-bar" style="width: {{ career.percentage }}%">
+                {{ career.percentage }}%
+            </div>
+        </div>
+        <p><strong>Matched Skills:</strong>
+            {% if career.matched %}
+                {{ career.matched | join(", ") }}
+            {% else %}
+                None
+            {% endif %}
+        </p>
+        <p>{{ career.description }}</p>
+        <p><strong>Qualification:</strong> {{ career.qualification }}</p>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

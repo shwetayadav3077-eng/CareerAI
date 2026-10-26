@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}CareerAI360 - Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Build Your Career with CareerAI360</h1>
+    <p>
+        An easy career guidance website that helps students manage skills,
+        find career paths, identify skill gaps, learn through roadmaps,
+        and practice interviews.
+    </p>
+    <a class="btn btn-light" href="{{ url_for('register') }}">Get Started</a>
+    <a class="btn" href="{{ url_for('login') }}">Login</a>
+</section>
+
+<h2 class="center">What CareerAI360 Provides</h2>
+<br>
+
+<div class="grid">
+    <div class="card">
+        <h3>🎯 Skill Gap</h3>
+        <p>Compare your current skills with the skills required for careers.</p>
+    </div>
+
+    <div class="card">
+        <h3>💼 Career Advisor</h3>
+        <p>See career options based on your skills.</p>
+    </div>
+
+    <div class="card">
+        <h3>📚 Learning Roadmap</h3>
+        <p>Follow step-by-step learning roadmaps.</p>
+    </div>
+
+    <div class="card">
+        <h3>🎓 Courses</h3>
+        <p>Explore courses for important technical skills.</p>
+    </div>
+
+    <div class="card">
+        <h3>🎤 Mock Interview</h3>
+        <p>Practice technical interview questions.</p>
+    </div>
+
+    <div class="card">
+        <h3>📊 Progress</h3>
+        <p>Track your skills, roadmap and interview progress.</p>
+    </div>
+</div>
+{% endblock %}

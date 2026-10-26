@@ -1,0 +1,172 @@
+html
+{% extends "base.html" %}
+
+{% block title %}Learning Roadmap - CareerAI360{% endblock %}
+
+{% block content %}
+
+<div class="roadmap-header">
+    <h1>🗺️ CareerAI360 Learning Roadmap</h1>
+    <p>Learn new skills step by step and track your progress.</p>
+</div>
+<!-- Current Skill Progress -->
+<div class="card roadmap-progress-card">
+
+    <h2>{{ skill }} Learning Roadmap</h2>
+
+    <div class="progress-info">
+        <span>Your Progress</span>
+        <strong>{{ progress_percentage }}%</strong>
+    </div>
+
+    <!-- Progress bar container -->
+    <div class="roadmap-progress-bar">
+
+    <!-- Progress bar container -->
+    <div class="roadmap-progress-bar">
+        <div
+        class="roadmap-progress-fill"
+        data-progress="{{ progress_percentage | int }}"
+        role="progressbar"
+        aria-valuenow="{{ progress_percentage | int }}"
+        aria-valuemin="0"
+        aria-valuemax="100">
+        </div>
+    </div>
+
+
+</div>
+
+
+    {% if progress_percentage >= 100 %}
+        <p class="success-message">
+            🎉 Congratulations! You have completed this learning roadmap.
+        </p>
+    {% else %}
+        <p>Keep learning! You are making progress.</p>
+    {% endif %}
+
+</div>
+
+<br>
+
+<!-- Available Learning Roadmaps -->
+<h2>Choose Your Skill</h2>
+
+<div class="grid">
+
+    <div class="card">
+        <h3>🐍 Python</h3>
+        <p>Learn programming and problem-solving.</p>
+        <a class="btn"
+           href="{{ url_for('roadmap', skill='Python') }}">
+            Open Roadmap
+        </a>
+    </div>
+
+    <div class="card">
+        <h3>🗄️ SQL</h3>
+        <p>Learn databases and data queries.</p>
+        <a class="btn"
+           href="{{ url_for('roadmap', skill='SQL') }}">
+            Open Roadmap
+        </a>
+    </div>
+
+    <div class="card">
+        <h3>🌐 HTML</h3>
+        <p>Learn the basics of web development.</p>
+        <a class="btn"
+           href="{{ url_for('roadmap', skill='HTML') }}">
+            Open Roadmap
+        </a>
+    </div>
+
+    <div class="card">
+        <h3>📊 Power BI</h3>
+        <p>Learn data visualization and dashboards.</p>
+        <a class="btn"
+           href="{{ url_for('roadmap', skill='Power BI') }}">
+            Open Roadmap
+        </a>
+    </div>
+
+</div>
+
+<br>
+
+<!-- Learning Steps -->
+<h2>{{ skill }} Learning Steps</h2>
+
+{% if steps %}
+
+    {% for step in steps %}
+
+    <div class="card roadmap-step">
+
+        <div class="step-heading">
+            <h3>Step {{ loop.index }}</h3>
+
+            {% if loop.index in completed_steps %}
+                <span class="badge">✓ Completed</span>
+            {% else %}
+                <span class="step-pending">In Progress</span>
+            {% endif %}
+        </div>
+
+        <p>{{ step }}</p>
+
+        {% if loop.index in completed_steps %}
+
+            <p class="success-message">
+                ✓ You have completed this step.
+            </p>
+
+        {% else %}
+
+            <form method="POST"
+                  action="{{ url_for('update_progress') }}">
+
+                <input type="hidden"
+                       name="skill"
+                       value="{{ skill }}">
+
+                <input type="hidden"
+                       name="step_number"
+                       value="{{ loop.index }}">
+
+                <button class="btn" type="submit">
+                    Mark as Completed
+                </button>
+
+            </form>
+
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
+
+{% else %}
+
+    <div class="card">
+        <p>No learning steps are available for this skill yet.</p>
+    </div>
+
+{% endif %}
+
+<br>
+
+<a href="{{ url_for('dashboard') }}" class="btn">
+    ← Back to Dashboard
+</a>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".progress-fill").forEach(function (bar) {
+        const progress = parseFloat(bar.dataset.progress) || 0;
+        bar.style.width = Math.min(100, Math.max(0, progress)) + "%";
+    });
+});
+</script>
+
+{% endblock %}

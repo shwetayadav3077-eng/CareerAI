@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Admin - CareerAI360{% endblock %}
+
+{% block content %}
+<h1>⚙️ Admin Dashboard</h1>
+<p>Basic system statistics.</p>
+<br>
+
+<div class="grid">
+    <div class="card center">
+        <h2>{{ users_count }}</h2>
+        <p>Total Users</p>
+    </div>
+
+    <div class="card center">
+        <h2>{{ careers_count }}</h2>
+        <p>Total Careers</p>
+    </div>
+
+    <div class="card center">
+        <h2>{{ courses_count }}</h2>
+        <p>Total Courses</p>
+    </div>
+
+    <div class="card center">
+        <h2>{{ interviews_count }}</h2>
+        <p>Total Interviews</p>
+    </div>
+</div>
+{% endblock %}

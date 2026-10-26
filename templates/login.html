@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Login - CareerAI360{% endblock %}
+
+{% block content %}
+
+<div class="login-container">
+
+    <h2>Login</h2>
+
+    <form method="POST">
+
+        <!-- Email -->
+        <label>Email</label>
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            required
+        >
+
+        <!-- Password -->
+        <label>Password</label>
+
+        <div class="password-box">
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter password"
+                required
+            >
+
+            <button type="button" onclick="togglePassword()">
+                👁
+            </button>
+        </div>
+
+        <button type="submit" class="login-btn">
+            Login
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+function togglePassword() {
+
+    const password = document.getElementById("password");
+    const button = document.querySelector(".password-box button");
+
+    if (password.type === "password") {
+        password.type = "text";
+        button.textContent = "🙈";
+    } else {
+        password.type = "password";
+        button.textContent = "👁";
+    }
+}
+</script>
+
+<style>
+
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+.login-container h2 {
+    text-align: center;
+}
+
+.login-container label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.password-box {
+    position: relative;
+    width: 100%;
+}
+
+.password-box input {
+    padding-right: 50px;
+}
+
+.password-box button {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.login-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+</style>
+
+{% endblock %}

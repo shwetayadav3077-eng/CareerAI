@@ -1,0 +1,991 @@
+{% extends "base.html" %}
+
+{% block title %}My Skills - CareerAI360{% endblock %}
+
+{% block content %}
+
+<div class="skills-page">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>🧩 My Skills</h1>
+        <p>Add your skills and select your current skill level.</p>
+    </div>
+
+
+    <!-- ADD SKILL CARD -->
+    <div class="skill-card">
+
+        <h2>Add a Skill</h2>
+
+        <p class="card-subtitle">
+            Select a category, skill and your current level.
+        </p>
+
+        <form method="POST">
+
+            <!-- CATEGORY -->
+            <label for="category">
+                Skill Category
+            </label>
+
+            <select
+                id="category"
+                name="category"
+                required
+            >
+
+                <option value="">
+                    -- Select Category --
+                </option>
+
+                <option value="Programming">
+                    Programming
+                </option>
+
+                <option value="Web Development">
+                    Web Development
+                </option>
+
+                <option value="Database">
+                    Database
+                </option>
+
+                <option value="Data & Analytics">
+                    Data & Analytics
+                </option>
+
+                <option value="AI & Machine Learning">
+                    AI & Machine Learning
+                </option>
+
+                <option value="Cyber Security">
+                    Cyber Security
+                </option>
+
+                <option value="Cloud & DevOps">
+                    Cloud & DevOps
+                </option>
+
+                <option value="Software Development">
+                    Software Development
+                </option>
+
+                <option value="Mobile Development">
+                    Mobile Development
+                </option>
+
+                <option value="Business & Management">
+                    Business & Management
+                </option>
+
+                <option value="Design & Creative">
+                    Design & Creative
+                </option>
+
+                <option value="Soft Skills">
+                    Soft Skills
+                </option>
+
+                <option value="Commerce & Finance">
+                    Commerce & Finance
+                </option>
+
+                <option value="Science & Research">
+                    Science & Research
+                </option>
+
+                <option value="Career & Professional Skills">
+                    Career & Professional Skills
+                </option>
+
+            </select>
+
+
+            <!-- SKILL -->
+            <label for="skill_name">
+                Skill
+            </label>
+
+            <select
+                id="skill_name"
+                name="skill_name"
+                required
+                disabled
+            >
+
+                <option value="">
+                    -- Select Category First --
+                </option>
+
+            </select>
+
+
+            <!-- LEVEL -->
+            <label for="skill_level">
+                Skill Level
+            </label>
+
+            <select
+                id="skill_level"
+                name="skill_level"
+                required
+            >
+
+                <option value="">
+                    -- Select Level --
+                </option>
+
+                <option value="Beginner">
+                    Beginner
+                </option>
+
+                <option value="Intermediate">
+                    Intermediate
+                </option>
+
+                <option value="Advanced">
+                    Advanced
+                </option>
+
+                <option value="Expert">
+                    Expert
+                </option>
+
+            </select>
+
+
+            <!-- BUTTON -->
+            <button
+                type="submit"
+                class="add-btn"
+            >
+                + Add Skill
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- MY ADDED SKILLS -->
+    <div class="skill-card">
+
+        <div class="skills-title-row">
+
+            <div>
+
+                <h2>
+                    My Added Skills
+                </h2>
+
+                <p class="card-subtitle">
+                    Skills currently added to your profile.
+                </p>
+
+            </div>
+
+            <span class="skill-count">
+                {{ skills|length }} Skills
+            </span>
+
+        </div>
+
+
+        {% if skills %}
+
+        <div class="skills-table-wrapper">
+
+            <table class="skills-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Skill
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                        <th>
+                            Level
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for skill in skills %}
+
+                    <tr>
+
+                        <td>
+                            <strong>
+                                {{ skill.skill_name }}
+                            </strong>
+                        </td>
+
+
+                        <td>
+                            {{ skill.category }}
+                        </td>
+
+
+                        <td>
+
+                            {% if skill.skill_level == "Beginner" %}
+
+                                <span class="level beginner">
+                                    Beginner
+                                </span>
+
+                            {% elif skill.skill_level == "Intermediate" %}
+
+                                <span class="level intermediate">
+                                    Intermediate
+                                </span>
+
+                            {% elif skill.skill_level == "Advanced" %}
+
+                                <span class="level advanced">
+                                    Advanced
+                                </span>
+
+                            {% else %}
+
+                                <span class="level expert">
+                                    Expert
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+
+                            <form
+                                method="POST"
+                                action="{{ url_for('delete_skill', skill_id=skill.user_skill_id) }}"
+                                onsubmit="return confirm('Are you sure you want to delete this skill?');"
+                            >
+
+                                <button
+                                    type="submit"
+                                    class="delete-btn"
+                                >
+                                    Delete
+                                </button>
+
+                            </form>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-skills">
+
+            <div class="empty-icon">
+                🧩
+            </div>
+
+            <h3>
+                No skills added yet
+            </h3>
+
+            <p>
+                Select a category and skill above to start building your skill profile.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const categorySelect =
+        document.getElementById("category");
+
+    const skillSelect =
+        document.getElementById("skill_name");
+
+
+    const skillData = {
+
+        "Programming": [
+            "Python",
+            "Java",
+            "C",
+            "C++",
+            "C#",
+            "JavaScript",
+            "TypeScript",
+            "PHP",
+            "R",
+            "Kotlin",
+            "Swift",
+            "Go",
+            "Rust"
+        ],
+
+
+        "Web Development": [
+            "HTML",
+            "CSS",
+            "Bootstrap",
+            "React.js",
+            "Angular",
+            "Vue.js",
+            "Node.js",
+            "Express.js",
+            "REST API",
+            "Web Development"
+        ],
+
+
+        "Database": [
+            "SQL",
+            "MySQL",
+            "PostgreSQL",
+            "MongoDB",
+            "Oracle",
+            "SQLite",
+            "Database Management",
+            "Database Design"
+        ],
+
+
+        "Data & Analytics": [
+            "Excel",
+            "Advanced Excel",
+            "Power BI",
+            "Tableau",
+            "Data Analysis",
+            "Data Visualization",
+            "Statistics",
+            "Pandas",
+            "NumPy",
+            "Matplotlib",
+            "Seaborn"
+        ],
+
+
+        "AI & Machine Learning": [
+            "Artificial Intelligence",
+            "Machine Learning",
+            "Deep Learning",
+            "Natural Language Processing",
+            "Computer Vision",
+            "TensorFlow",
+            "PyTorch",
+            "Scikit-learn",
+            "Generative AI",
+            "Prompt Engineering"
+        ],
+
+
+        "Cyber Security": [
+            "Cyber Security",
+            "Ethical Hacking",
+            "Network Security",
+            "Cryptography",
+            "Penetration Testing",
+            "Kali Linux",
+            "Digital Forensics",
+            "Information Security"
+        ],
+
+
+        "Cloud & DevOps": [
+            "AWS",
+            "Microsoft Azure",
+            "Google Cloud",
+            "Docker",
+            "Kubernetes",
+            "Git",
+            "GitHub",
+            "CI/CD",
+            "Linux",
+            "Cloud Computing"
+        ],
+
+
+        "Software Development": [
+            "Software Engineering",
+            "Software Testing",
+            "Manual Testing",
+            "Automation Testing",
+            "SDLC",
+            "Agile",
+            "Scrum",
+            "Debugging",
+            "Git",
+            "Version Control"
+        ],
+
+
+        "Mobile Development": [
+            "Android Development",
+            "Flutter",
+            "React Native",
+            "Android Studio",
+            "Firebase",
+            "Kotlin",
+            "Swift",
+            "iOS Development"
+        ],
+
+
+        "Business & Management": [
+            "Business Analysis",
+            "Project Management",
+            "Business Communication",
+            "Leadership",
+            "Problem Solving",
+            "Decision Making",
+            "Financial Management",
+            "Marketing",
+            "Digital Marketing"
+        ],
+
+
+        "Design & Creative": [
+            "UI Design",
+            "UX Design",
+            "Figma",
+            "Graphic Design",
+            "Canva",
+            "Photoshop",
+            "Video Editing",
+            "Content Creation",
+            "Animation"
+        ],
+
+
+        "Soft Skills": [
+            "Communication",
+            "Teamwork",
+            "Leadership",
+            "Time Management",
+            "Presentation Skills",
+            "Critical Thinking",
+            "Problem Solving",
+            "Creativity",
+            "Adaptability",
+            "Public Speaking"
+        ],
+
+
+        "Commerce & Finance": [
+            "Accounting",
+            "Tally",
+            "GST",
+            "Financial Analysis",
+            "Taxation",
+            "Banking",
+            "Investment Analysis",
+            "Economics"
+        ],
+
+
+        "Science & Research": [
+            "Research Methodology",
+            "Scientific Computing",
+            "Data Interpretation",
+            "Laboratory Skills",
+            "Statistical Analysis",
+            "Technical Writing"
+        ],
+
+
+        "Career & Professional Skills": [
+            "Resume Writing",
+            "Interview Skills",
+            "Professional Communication",
+            "LinkedIn",
+            "Networking",
+            "Career Planning",
+            "Job Search",
+            "Aptitude",
+            "Logical Reasoning"
+        ]
+
+    };
+
+
+    /* ==========================================
+       CATEGORY CHANGE
+    ========================================== */
+
+    categorySelect.addEventListener(
+        "change",
+        function () {
+
+            const selectedCategory =
+                categorySelect.value;
+
+
+            /* Clear existing skills */
+
+            skillSelect.innerHTML = "";
+
+
+            /* No category */
+
+            if (selectedCategory === "") {
+
+                skillSelect.disabled = true;
+
+
+                const option =
+                    document.createElement("option");
+
+                option.value = "";
+
+                option.textContent =
+                    "-- Select Category First --";
+
+                skillSelect.appendChild(option);
+
+                return;
+            }
+
+
+            /* Enable skill dropdown */
+
+            skillSelect.disabled = false;
+
+
+            /* Default option */
+
+            const firstOption =
+                document.createElement("option");
+
+            firstOption.value = "";
+
+            firstOption.textContent =
+                "-- Select Skill --";
+
+            skillSelect.appendChild(firstOption);
+
+
+            /* Get selected category skills */
+
+            const skills =
+                skillData[selectedCategory];
+
+
+            /* Add skills */
+
+            if (skills) {
+
+                skills.forEach(
+                    function (skillName) {
+
+                        const option =
+                            document.createElement("option");
+
+                        option.value =
+                            skillName;
+
+                        option.textContent =
+                            skillName;
+
+                        skillSelect.appendChild(option);
+
+                    }
+                );
+
+            }
+
+        }
+
+    );
+
+});
+
+</script>
+
+
+<!-- =====================================================
+     CSS
+===================================================== -->
+
+<style>
+
+.skills-page {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 30px;
+
+}
+
+
+.page-header {
+
+    margin-bottom: 25px;
+
+}
+
+
+.page-header h1 {
+
+    margin: 0;
+
+    color: #0E3440;
+
+    font-size: 30px;
+
+}
+
+
+.page-header p {
+
+    margin-top: 8px;
+
+    color: #607078;
+
+}
+
+
+.skill-card {
+
+    background: white;
+
+    padding: 28px;
+
+    margin-bottom: 25px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,0.08);
+
+}
+
+
+.skill-card h2 {
+
+    margin-top: 0;
+
+    color: #0E3440;
+
+}
+
+
+.card-subtitle {
+
+    color: #6b7a80;
+
+    margin-bottom: 22px;
+
+}
+
+
+.skill-card label {
+
+    display: block;
+
+    margin-top: 18px;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+
+    color: #263238;
+
+}
+
+
+.skill-card select {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccd6d8;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    background: white;
+
+    box-sizing: border-box;
+
+}
+
+
+.skill-card select:focus {
+
+    outline: none;
+
+    border-color: #35C7A2;
+
+}
+
+
+.skill-card select:disabled {
+
+    background: #f1f3f4;
+
+    color: #777;
+
+    cursor: not-allowed;
+
+}
+
+
+.add-btn {
+
+    margin-top: 25px;
+
+    padding: 12px 24px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #0E3440;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+}
+
+
+.add-btn:hover {
+
+    background: #35C7A2;
+
+    color: #0E3440;
+
+}
+
+
+.skills-title-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.skill-count {
+
+    background: #E7B84B;
+
+    color: #263238;
+
+    padding: 7px 14px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+}
+
+
+.skills-table-wrapper {
+
+    overflow-x: auto;
+
+}
+
+
+.skills-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 20px;
+
+}
+
+
+.skills-table th {
+
+    background: #0E3440;
+
+    color: white;
+
+    padding: 13px;
+
+    text-align: left;
+
+}
+
+
+.skills-table td {
+
+    padding: 13px;
+
+    border-bottom: 1px solid #e5e9ea;
+
+}
+
+
+.level {
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+
+.beginner {
+
+    background: #fff3cd;
+
+}
+
+
+.intermediate {
+
+    background: #d1ecf1;
+
+}
+
+
+.advanced {
+
+    background: #d4edda;
+
+}
+
+
+.expert {
+
+    background: #e2d9f3;
+
+}
+
+
+.delete-btn {
+
+    border: none;
+
+    background: #f3f3f3;
+
+    color: #b3261e;
+
+    padding: 7px 12px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+}
+
+
+.delete-btn:hover {
+
+    background: #b3261e;
+
+    color: white;
+
+}
+
+
+.empty-skills {
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+}
+
+
+.empty-icon {
+
+    font-size: 45px;
+
+}
+
+
+.empty-skills h3 {
+
+    color: #0E3440;
+
+}
+
+
+.empty-skills p {
+
+    color: #6b7a80;
+
+}
+
+
+@media (max-width: 700px) {
+
+    .skills-page {
+
+        padding: 15px;
+
+    }
+
+
+    .skills-title-row {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+
+    }
+
+}
+
+</style>
+
+{% endblock %}

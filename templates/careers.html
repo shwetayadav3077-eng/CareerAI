@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Careers - CareerAI360{% endblock %}
+
+{% block content %}
+<h1>💼 Career Database</h1>
+<p>Explore career roles and their required skills.</p>
+<br>
+
+<div class="grid">
+{% for career in careers %}
+    <div class="card">
+        <h3>{{ career.career_name }}</h3>
+        <p><strong>Category:</strong> {{ career.category }}</p>
+        <p><strong>Skills:</strong> {{ career.required_skills }}</p>
+        <p><strong>Description:</strong> {{ career.description }}</p>
+        <p><strong>Qualification:</strong> {{ career.qualification }}</p>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

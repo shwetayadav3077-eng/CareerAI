@@ -1,0 +1,300 @@
+{% extends "base.html" %}
+
+{% block title %}CareerAI360 - Dashboard{% endblock %}
+
+{% block page_name %}Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- DASHBOARD HEADER -->
+
+<section class="dashboard-header">
+
+    <div>
+
+        <div class="dashboard-date">
+            CAREERAI360 • STUDENT DASHBOARD
+        </div>
+
+        <h1>
+            {{ greeting }}, {{ session.get('user_name', 'Student') }}
+        </h1>
+        
+        <p>
+            A clear next step makes progress feel possible.
+            Here is your career journey today.
+        </p>
+
+    </div>
+
+    <a href="{{ url_for('roadmap', skill='Python') }}"
+       class="btn">
+        Continue Learning
+    </a>
+
+</section>
+
+<!-- CAREER SNAPSHOT -->
+<div class="snapshot-progress">
+
+    <div class="progress-number">
+        {{ progress_percentage }}%
+    </div>
+
+    <div class="progress-label">
+        career journey
+    </div>
+
+    <div class="progress-line">
+        <div
+            class="progress-fill"
+            data-progress="{{ progress_percentage }}">
+        </div>
+    </div>
+
+</div>
+
+<!-- ATTENTION -->
+
+<section>
+
+    <div class="section-heading">
+
+        <div>
+            <h2>What needs your attention</h2>
+
+            <p>
+                Small actions, meaningful progress.
+            </p>
+        </div>
+
+        <a href="{{ url_for('profile') }}"
+           class="section-link">
+            View profile →
+        </a>
+
+    </div>
+
+
+    <div class="attention-grid">
+
+
+        <!-- SKILLS -->
+
+        <a href="{{ url_for('skills') }}"
+           class="attention-card attention-blue">
+
+            <div class="attention-icon">
+                ⚡
+            </div>
+
+            <div>
+
+                <h3>My skills</h3>
+
+                <p>
+                    Add and manage your skills
+                    to improve your career matches.
+                </p>
+
+            </div>
+
+            <div class="card-arrow">
+                ›
+            </div>
+
+        </a>
+
+
+        <!-- SKILL GAP -->
+
+        <a href="{{ url_for('skill_gap') }}"
+           class="attention-card attention-green">
+
+            <div class="attention-icon">
+                ◎
+            </div>
+
+            <div>
+
+                <h3>Close a skill gap</h3>
+
+                <p>
+                    Find the skills you need
+                    to improve for your career.
+                </p>
+
+            </div>
+
+            <div class="card-arrow">
+                ›
+            </div>
+
+        </a>
+
+
+        <!-- INTERVIEW -->
+
+        <a href="{{ url_for('interview') }}"
+           class="attention-card attention-yellow">
+
+            <div class="attention-icon">
+                💬
+            </div>
+
+            <div>
+
+                <h3>Practice interview</h3>
+
+                <p>
+                    Practice technical interview
+                    questions and improve your preparation.
+                </p>
+
+            </div>
+
+            <div class="card-arrow">
+                ›
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- LOWER SECTION -->
+
+<section class="dashboard-columns">
+
+
+    <!-- ROADMAP -->
+
+    <div class="roadmap-card">
+
+        <div class="roadmap-title">
+
+            <div>
+
+                <h3>Learning roadmap</h3>
+
+                <p style="font-size:11px;color:#9299a3;margin-top:4px;">
+                    Build your skills step by step
+                </p>
+
+            </div>
+
+            <a href="{{ url_for('roadmap', skill='Python') }}">
+                Open roadmap →
+            </a>
+
+        </div>
+
+
+        <div class="roadmap-item">
+
+            <div class="roadmap-number">
+                1
+            </div>
+
+            <div>
+                <strong>Choose a career direction</strong>
+
+                <small>
+                    Explore careers that match your interests.
+                </small>
+            </div>
+
+        </div>
+
+
+        <div class="roadmap-item">
+
+            <div class="roadmap-number">
+                2
+            </div>
+
+            <div>
+                <strong>Build important skills</strong>
+
+                <small>
+                    Add skills and identify areas to improve.
+                </small>
+            </div>
+
+        </div>
+
+
+        <div class="roadmap-item">
+
+            <div class="roadmap-number">
+                3
+            </div>
+
+            <div>
+                <strong>Learn and practice</strong>
+
+                <small>
+                    Use courses and learning roadmaps.
+                </small>
+            </div>
+
+        </div>
+
+
+        <div class="roadmap-item">
+
+            <div class="roadmap-number">
+                4
+            </div>
+
+            <div>
+                <strong>Prepare for interviews</strong>
+
+                <small>
+                    Practice questions and track your progress.
+                </small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- NOTE -->
+
+    <div class="note-card">
+
+        <div class="note-icon">
+            💡
+        </div>
+
+        <div class="note-label">
+            A NOTE FOR YOU
+        </div>
+
+        <h3>
+            Try a small project this week
+        </h3>
+
+        <p>
+            Learning becomes easier when you practice.
+            Choose one skill and create something small
+            using what you have learned.
+        </p>
+
+    </div>
+
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".progress-fill[data-progress]").forEach(function (bar) {
+        let progress = parseInt(bar.dataset.progress, 10) || 0;
+        progress = Math.max(0, Math.min(100, progress));
+        bar.style.width = progress + "%";
+    });
+});
+</script>
+
+{% endblock %}

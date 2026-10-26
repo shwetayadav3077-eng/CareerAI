@@ -1,0 +1,2167 @@
+/* =========================================
+   CAREERAI360
+   Complete Style Sheet
+   Simple • Professional • Student Friendly
+   ========================================= */
+
+
+/* =========================================
+   BASIC SETTINGS
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Times New Roman", Times, serif;
+    background: #f7f8fa;
+    color: #263238;
+}
+
+
+/* =========================================
+   MAIN LAYOUT
+   ========================================= */
+
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   LEFT SIDEBAR
+   ========================================= */
+
+.sidebar {
+    width: 220px;
+    background: white;
+    border-right: 1px solid #e5e7eb;
+
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    z-index: 10;
+}
+
+
+/* =========================================
+   LOGO
+   ========================================= */
+
+.logo-area {
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+
+    background: #2563eb;
+    color: white;
+
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 9px;
+
+    font-size: 16px;
+}
+
+.logo-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #172033;
+}
+
+.logo-text {
+    font-size: 10px;
+    color: #9aa1ad;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================
+   SIDEBAR TITLE
+   ========================================= */
+
+.sidebar-title {
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    color: #a0a7b2;
+
+    margin: 22px 20px 10px;
+}
+
+
+/* =========================================
+   SIDEBAR MENU
+   ========================================= */
+
+.sidebar-menu {
+    padding: 0 12px;
+}
+
+.sidebar-menu a,
+.profile-link {
+    display: flex;
+    align-items: center;
+
+    height: 40px;
+
+    padding: 0 12px;
+
+    margin-bottom: 4px;
+
+    color: #5f6875;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.sidebar-menu a span,
+.profile-link span {
+    width: 24px;
+
+    font-size: 15px;
+}
+
+.sidebar-menu a:hover,
+.profile-link:hover {
+    background: #f1f5ff;
+
+    color: #2563eb;
+}
+
+.sidebar-menu a.active {
+    background: #edf4ff;
+
+    color: #2563eb;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   SIDEBAR BOTTOM
+   ========================================= */
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    padding: 12px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+.profile-link {
+    margin-bottom: 12px;
+}
+
+
+/* =========================================
+   USER BOX
+   ========================================= */
+
+.user-box {
+    display: flex;
+    align-items: center;
+
+    padding: 10px 5px;
+}
+
+.user-avatar,
+.top-user-avatar {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    background: #e7f0ff;
+
+    color: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.user-details {
+    margin-left: 9px;
+}
+
+.user-details strong {
+    display: block;
+
+    font-size: 12px;
+}
+
+.user-details small {
+    color: #8b929d;
+
+    font-size: 10px;
+}
+
+
+/* =========================================
+   LOGOUT
+   ========================================= */
+
+.logout-button {
+    display: block;
+
+    text-align: center;
+
+    margin-top: 8px;
+
+    padding: 7px;
+
+    color: #777;
+
+    text-decoration: none;
+
+    font-size: 12px;
+}
+
+.logout-button:hover {
+    color: #2563eb;
+}
+
+
+/* =========================================
+   MAIN AREA
+   ========================================= */
+
+.main-area {
+    margin-left: 220px;
+
+    width: calc(100% - 220px);
+
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   TOP BAR
+   ========================================= */
+
+.topbar {
+    height: 58px;
+
+    background: white;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 30px;
+}
+
+.breadcrumb {
+    display: flex;
+
+    gap: 10px;
+
+    align-items: center;
+
+    font-size: 12px;
+}
+
+.breadcrumb span {
+    color: #a0a6b0;
+}
+
+.breadcrumb b {
+    color: #c5c9cf;
+}
+
+.breadcrumb strong {
+    color: #263238;
+}
+
+
+/* =========================================
+   TOP RIGHT
+   ========================================= */
+
+.topbar-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 12px;
+}
+
+.search-icon {
+    font-size: 23px;
+
+    color: #68717d;
+
+    margin-right: 10px;
+}
+
+.top-user-avatar {
+    width: 28px;
+    height: 28px;
+}
+
+
+/* =========================================
+   CONTENT AREA
+   ========================================= */
+
+.content-area {
+    max-width: 1050px;
+
+    margin: 0 auto;
+
+    padding: 40px 30px 60px;
+}
+
+
+/* =========================================
+   PAGE HEADING
+   ========================================= */
+
+.page-heading {
+    margin-bottom: 25px;
+}
+
+.page-heading h1 {
+    font-size: 30px;
+
+    color: #172033;
+}
+
+.page-heading p {
+    color: #7b8490;
+
+    margin-top: 7px;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   DASHBOARD HEADER
+   ========================================= */
+
+.dashboard-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 28px;
+}
+
+.dashboard-date {
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    color: #9ba3ad;
+
+    margin-bottom: 8px;
+}
+
+.dashboard-header h1 {
+    font-size: 34px;
+
+    color: #101828;
+
+    margin-bottom: 7px;
+}
+
+.dashboard-header p {
+    color: #7b8490;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.btn {
+    display: inline-block;
+
+    background: #2563eb;
+
+    color: white;
+
+    text-decoration: none;
+
+    border: none;
+
+    border-radius: 6px;
+
+    padding: 10px 17px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #1d4ed8;
+}
+
+.btn-secondary {
+    background: white;
+
+    color: #2563eb;
+
+    border: 1px solid #d7e1f5;
+}
+
+.btn-secondary:hover {
+    background: #f1f5ff;
+}
+
+
+/* =========================================
+   CAREER SNAPSHOT
+   ========================================= */
+
+.snapshot {
+    background: #eaf2ff;
+
+    border-left: 4px solid #2563eb;
+
+    padding: 28px 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 38px;
+}
+
+.snapshot-label {
+    font-size: 9px;
+
+    letter-spacing: 1.3px;
+
+    color: #6582ad;
+
+    margin-bottom: 8px;
+}
+
+.snapshot h2 {
+    font-size: 20px;
+
+    color: #172033;
+
+    margin-bottom: 6px;
+}
+
+.snapshot p {
+    font-size: 13px;
+
+    color: #68778c;
+
+    margin-bottom: 15px;
+}
+
+.snapshot-link {
+    color: #2563eb;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   PROGRESS
+   ========================================= */
+
+.snapshot-progress {
+    width: 145px;
+}
+
+.progress-number {
+    font-size: 37px;
+
+    font-weight: bold;
+
+    color: #111827;
+}
+
+.progress-label {
+    color: #89929d;
+
+    font-size: 10px;
+}
+
+.progress-line {
+    height: 5px;
+
+    background: #d8e0ed;
+
+    border-radius: 5px;
+
+    margin-top: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+
+    background: #2563eb;
+
+    border-radius: 5px;
+
+    transition: width 0.3s;
+}
+
+
+/* =========================================
+   SECTION HEADING
+   ========================================= */
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 14px;
+}
+
+.section-heading h2 {
+    font-size: 18px;
+
+    color: #182230;
+}
+
+.section-heading p {
+    color: #9299a3;
+
+    font-size: 12px;
+
+    margin-top: 4px;
+}
+
+.section-link {
+    color: #2563eb;
+
+    font-size: 12px;
+
+    text-decoration: none;
+}
+
+
+/* =========================================
+   ATTENTION CARDS
+   ========================================= */
+
+.attention-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 40px;
+}
+
+.attention-card {
+    padding: 20px;
+
+    min-height: 105px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    color: #263238;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    transition: 0.2s;
+}
+
+.attention-card:hover {
+    transform: translateY(-2px);
+}
+
+.attention-blue {
+    background: #eef5ff;
+}
+
+.attention-green {
+    background: #e9fbf5;
+}
+
+.attention-yellow {
+    background: #fff9e8;
+}
+
+.attention-icon {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 7px;
+
+    margin-right: 12px;
+
+    background: white;
+}
+
+.attention-card h3 {
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+.attention-card p {
+    font-size: 11px;
+
+    line-height: 1.4;
+
+    color: #77808b;
+}
+
+.card-arrow {
+    margin-left: auto;
+
+    font-size: 18px;
+}
+
+
+/* =========================================
+   DASHBOARD LOWER AREA
+   ========================================= */
+
+.dashboard-columns {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* =========================================
+   ROADMAP CARD
+   ========================================= */
+
+.roadmap-card,
+.note-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 22px;
+}
+
+.roadmap-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.roadmap-title h3 {
+    font-size: 16px;
+}
+
+.roadmap-title a {
+    color: #2563eb;
+
+    font-size: 11px;
+
+    text-decoration: none;
+}
+
+.roadmap-item {
+    display: flex;
+
+    align-items: center;
+
+    padding: 12px 0;
+
+    border-top: 1px solid #f0f1f3;
+}
+
+.roadmap-number {
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background: #edf4ff;
+
+    color: #2563eb;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    margin-right: 12px;
+}
+
+.roadmap-item strong {
+    font-size: 13px;
+}
+
+.roadmap-item small {
+    display: block;
+
+    color: #9299a3;
+
+    margin-top: 3px;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   NOTE CARD
+   ========================================= */
+
+.note-card {
+    background: white;
+
+    min-height: 170px;
+}
+
+.note-icon {
+    width: 32px;
+    height: 32px;
+
+    background: #edf4ff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 7px;
+
+    margin-bottom: 14px;
+}
+
+.note-label {
+    font-size: 9px;
+
+    letter-spacing: 1.3px;
+
+    color: #9ba3ad;
+
+    margin-bottom: 8px;
+}
+
+.note-card h3 {
+    font-size: 16px;
+
+    margin-bottom: 8px;
+}
+
+.note-card p {
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    color: #7b8490;
+}
+
+
+/* =========================================
+   COMMON CARD
+   ========================================= */
+
+.card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   COURSES PAGE
+   ========================================= */
+
+.course-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.course-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 24px;
+
+    transition: 0.2s;
+}
+
+.course-card:hover {
+    border-color: #cbdaf7;
+
+    transform: translateY(-2px);
+}
+
+.course-icon {
+    width: 40px;
+    height: 40px;
+
+    background: #eef5ff;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 20px;
+
+    margin-bottom: 15px;
+}
+
+.course-card h2 {
+    font-size: 19px;
+
+    color: #172033;
+
+    margin-bottom: 7px;
+}
+
+.course-provider {
+    color: #7b8490;
+
+    font-size: 13px;
+
+    margin-bottom: 15px;
+}
+
+.course-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    font-size: 12px;
+
+    color: #68717d;
+
+    margin-bottom: 18px;
+}
+
+.course-open {
+    min-width: 78px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   CAREER CARDS
+   ========================================= */
+
+.career-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.career-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 22px;
+}
+
+.career-card h2 {
+    color: #172033;
+
+    font-size: 19px;
+
+    margin-bottom: 8px;
+}
+
+.career-card p {
+    color: #737d88;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================
+   SKILLS
+   ========================================= */
+
+.skill-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.skill-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 20px;
+}
+
+.skill-card h3 {
+    font-size: 16px;
+
+    color: #172033;
+
+    margin-bottom: 7px;
+}
+
+.skill-card p {
+    font-size: 12px;
+
+    color: #7b8490;
+}
+
+
+/* =========================================
+   FORMS
+   ========================================= */
+
+.form-card {
+    max-width: 600px;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 25px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    border: 1px solid #dfe3e8;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    margin-top: 6px;
+
+    margin-bottom: 14px;
+
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #2563eb;
+}
+
+label {
+    font-size: 13px;
+
+    font-weight: bold;
+
+    color: #394452;
+}
+
+
+/* =========================================
+   TABLES
+   ========================================= */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+}
+
+th {
+    text-align: left;
+
+    background: #f7f8fa;
+
+    color: #68717d;
+
+    font-size: 12px;
+
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+
+    border-top: 1px solid #eeeeee;
+
+    font-size: 13px;
+}
+
+tr:hover td {
+    background: #fafbfc;
+}
+
+
+/* =========================================
+   BADGE
+   ========================================= */
+
+.badge {
+    display: inline-block;
+
+    padding: 4px 9px;
+
+    border-radius: 20px;
+
+    background: #edf4ff;
+
+    color: #2563eb;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   SKILL GAP
+   ========================================= */
+
+.match-box {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 22px;
+
+    margin-bottom: 18px;
+}
+
+.match-number {
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: #2563eb;
+}
+
+
+/* =========================================
+   ROADMAP PAGE
+   ========================================= */
+
+.roadmap-step {
+    display: flex;
+
+    align-items: center;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 18px;
+
+    margin-bottom: 12px;
+}
+
+.step-number {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: #edf4ff;
+
+    color: #2563eb;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: bold;
+
+    margin-right: 14px;
+}
+
+
+/* =========================================
+   PROGRESS BOX
+   ========================================= */
+
+.progress-box {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+
+    height: 8px;
+
+    background: #e5e7eb;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    margin-top: 10px;
+}
+
+.progress-bar .progress-fill {
+    height: 100%;
+
+    background: #2563eb;
+}
+
+
+/* =========================================
+   INTERVIEW
+   ========================================= */
+
+.interview-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 24px;
+
+    margin-bottom: 18px;
+}
+
+.interview-card h2 {
+    font-size: 19px;
+
+    color: #172033;
+
+    margin-bottom: 12px;
+}
+
+.interview-card p {
+    color: #737d88;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   AUTH PAGES
+   ========================================= */
+
+.auth-wrap {
+    min-height: 70vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.auth-card {
+    width: 100%;
+
+    max-width: 430px;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 8px;
+
+    padding: 30px;
+}
+
+.auth-card h1 {
+    text-align: center;
+
+    color: #172033;
+
+    margin-bottom: 8px;
+}
+
+.auth-card p {
+    text-align: center;
+
+    color: #7b8490;
+
+    font-size: 13px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================================
+   MESSAGE
+   ========================================= */
+
+.message {
+    background: #eaf7f2;
+
+    border: 1px solid #bce5d6;
+
+    color: #23624e;
+
+    padding: 11px 15px;
+
+    border-radius: 6px;
+
+    margin-bottom: 20px;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   DANGER BUTTON
+   ========================================= */
+
+.btn-danger {
+    background: #dc3545;
+
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #bb2d3b;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.site-footer {
+    background: white;
+
+    border-top: 1px solid #e5e7eb;
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: #7b8490;
+
+    font-size: 12px;
+}
+
+.site-footer h3 {
+    color: #172033;
+
+    margin-bottom: 5px;
+}
+
+.footer-symbol {
+    font-size: 22px;
+
+    margin-bottom: 5px;
+}
+
+.footer-line {
+    margin-top: 8px;
+
+    color: #2563eb;
+}
+
+.copyright {
+    margin-top: 10px;
+
+    color: #a0a7b2;
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET
+   ========================================= */
+
+@media (max-width: 850px) {
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .main-area {
+        margin-left: 190px;
+
+        width: calc(100% - 190px);
+    }
+
+    .attention-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .career-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - MOBILE
+   ========================================= */
+
+@media (max-width: 650px) {
+
+    .sidebar {
+        width: 70px;
+    }
+
+    .logo-area {
+        justify-content: center;
+
+        padding: 0;
+    }
+
+    .logo-name,
+    .logo-text,
+    .sidebar-title,
+    .user-details,
+    .logout-button {
+     display: flex;
+    }
+    
+
+    .logo-icon {
+        margin: 0;
+    }
+
+    .sidebar-menu {
+        padding: 0 8px;
+    }
+
+    .sidebar-menu a,
+    .profile-link {
+        justify-content: center;
+
+        padding: 0;
+    }
+
+    .sidebar-menu a span,
+    .profile-link span {
+        width: auto;
+
+        font-size: 18px;
+    }
+
+    .sidebar-menu a {
+        font-size: 0;
+    }
+
+    .profile-link {
+        font-size: 0;
+    }
+
+    .user-box {
+        justify-content: center;
+    }
+
+    .main-area {
+        margin-left: 70px;
+
+        width: calc(100% - 70px);
+    }
+
+    .topbar {
+        padding: 0 15px;
+    }
+
+    .breadcrumb {
+        font-size: 10px;
+    }
+
+    .topbar-right strong {
+        display: none;
+    }
+
+    .content-area {
+        padding: 25px 15px;
+    }
+
+    .dashboard-header {
+        display: block;
+    }
+
+    .dashboard-header h1 {
+        font-size: 27px;
+    }
+
+    .dashboard-header .btn {
+        margin-top: 15px;
+    }
+
+    .snapshot {
+        display: block;
+
+        padding: 22px;
+    }
+
+    .snapshot-progress {
+        margin-top: 20px;
+    }
+
+    .attention-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-link {
+        display: inline-block;
+
+        margin-top: 8px;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL SCREEN
+   ========================================= */
+
+@media (max-width: 400px) {
+
+    .sidebar {
+        width: 58px;
+    }
+
+    .main-area {
+        margin-left: 58px;
+
+        width: calc(100% - 58px);
+    }
+
+    .content-area {
+        padding: 20px 10px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 24px;
+    }
+
+    .snapshot h2 {
+        font-size: 18px;
+    }
+
+    .attention-card {
+        padding: 15px;
+    }
+
+}
+/* =========================================
+   CAREERAI360 PASTEL PINK THEME OVERRIDES
+   Added for the light-pink redesign.
+   ========================================= */
+:root {
+    --pink-50: #fff7fb;
+    --pink-100: #ffeaf3;
+    --pink-200: #ffd2e4;
+    --pink-300: #ffb4d0;
+    --pink-500: #ed4f91;
+    --pink-600: #d9367b;
+    --pink-700: #a91f59;
+    --pink-text: #6b2445;
+    --pink-border: #f4d5e2;
+}
+
+body {
+    background: #fff7fb;
+    color: #34243a;
+}
+
+.sidebar {
+    background: linear-gradient(180deg, #fff1f7 0%, #ffe6f0 100%);
+    border-right: 1px solid #f4d5e2;
+    box-shadow: 4px 0 18px rgba(184, 54, 112, 0.04);
+}
+
+.logo-area,
+.sidebar-bottom {
+    border-color: #f4d5e2;
+}
+
+.logo-icon {
+    background: #ed4f91;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.logo-name,
+.breadcrumb strong {
+    color: #672344;
+}
+
+.logo-text,
+.sidebar-title {
+    color: #b36c8d;
+}
+
+.sidebar-menu a,
+.profile-link {
+    color: #78435c;
+    border-radius: 10px;
+}
+
+.sidebar-menu a:hover,
+.profile-link:hover {
+    background: #ffe0ed;
+    color: #b62465;
+}
+
+.sidebar-menu a.active {
+    background: #f7c4da;
+    color: #9d1c55;
+    font-weight: bold;
+}
+
+.user-avatar,
+.top-user-avatar {
+    background: #ffd9e9;
+    color: #ad2865;
+}
+
+.logout-button:hover {
+    color: #d9367b;
+}
+
+.main-area {
+    background: #fff8fb;
+}
+
+.topbar {
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #f4d5e2;
+}
+
+.content-area {
+    color: #34243a;
+}
+
+h1, h2, h3, h4,
+.dashboard-header h1,
+.section-heading h2,
+.snapshot h2,
+.roadmap-title h3 {
+    color: #3d2340;
+}
+
+p,
+.dashboard-header p,
+.section-heading p {
+    color: #806a7b;
+}
+
+a {
+    color: #c42f72;
+}
+
+a:hover {
+    color: #982051;
+}
+
+.btn,
+button,
+input[type="submit"],
+button[type="submit"] {
+    background: linear-gradient(135deg, #f36ca5, #df3e83);
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    box-shadow: 0 5px 12px rgba(223, 62, 131, 0.13);
+}
+
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    background: #c92e70;
+    color: #fff;
+}
+
+.btn-light {
+    background: #fff;
+    color: #c42f72;
+    border: 1px solid #f2a6c7;
+    box-shadow: none;
+}
+
+.btn-light:hover {
+    background: #fff0f6;
+    color: #a91f59;
+}
+
+.card,
+.attention-card,
+.roadmap-card,
+.snapshot,
+.form-card,
+.course-card,
+.skill-card,
+.dashboard-card {
+    border-color: #f3dce6;
+    box-shadow: 0 7px 24px rgba(164, 57, 105, 0.055);
+}
+
+.card,
+.roadmap-card,
+.attention-card,
+.course-card,
+.skill-card {
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+.card:hover,
+.attention-card:hover,
+.course-card:hover,
+.skill-card:hover {
+    border-color: #f1b8d0;
+    box-shadow: 0 10px 28px rgba(164, 57, 105, 0.09);
+}
+
+.hero,
+.snapshot {
+    background: linear-gradient(120deg, #fff0f6 0%, #fffafd 58%, #ffe4ef 100%);
+    border: 1px solid #f6d4e2;
+    border-radius: 18px;
+}
+
+.snapshot-link,
+.section-link {
+    color: #c42f72;
+}
+
+.progress-line {
+    background: #ffe0ed;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #f47aad, #d9367b);
+}
+
+.roadmap-number,
+.attention-icon {
+    background: #ffe5f0;
+    color: #c42f72;
+}
+
+.attention-blue .attention-icon {
+    background: #fce4ef;
+    color: #c42f72;
+}
+
+.attention-green .attention-icon {
+    background: #e6f8f1;
+    color: #168b6a;
+}
+
+.attention-yellow .attention-icon {
+    background: #fff3d9;
+    color: #a56a12;
+}
+
+input,
+select,
+textarea {
+    border-color: #e9cbd9;
+    border-radius: 9px;
+    background: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #ed72a6;
+    outline: 3px solid #ffe0ed;
+}
+
+.message,
+.alert,
+.flash-message {
+    background: #fff0f6;
+    border: 1px solid #f6c5da;
+    color: #8d2454;
+    border-radius: 10px;
+}
+
+table th {
+    background: #fff0f6;
+    color: #672344;
+}
+
+table td,
+table th {
+    border-color: #f4dce7;
+}
+
+/* Make the pink theme consistent on small screens too. */
+@media (max-width: 700px) {
+    .sidebar {
+        background: #fff0f6;
+    }
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ffe0ed;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-bar .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #f47aad, #d9367b);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* CareerAI360 Learning Roadmap */
+
+.roadmap-header {
+    margin-bottom: 25px;
+}
+
+.roadmap-header h1 {
+    margin-bottom: 8px;
+}
+
+.roadmap-header p {
+    color: #64748b;
+}
+
+.roadmap-progress-card {
+    padding: 25px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 10px;
+}
+
+.progress-info strong {
+    font-size: 20px;
+}
+
+.progress-box {
+    width: 100%;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 100%;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #16a34a;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+.roadmap-step {
+    margin-bottom: 18px;
+    padding: 22px;
+}
+
+.step-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.step-heading h3 {
+    margin: 0;
+}
+
+.badge {
+    display: inline-block;
+    background: #dcfce7;
+    color: #166534;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.step-pending {
+    display: inline-block;
+    background: #fef3c7;
+    color: #92400e;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.success-message {
+    color: #15803d;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .roadmap-progress-card,
+    .roadmap-step {
+        padding: 16px;
+    }
+
+    .step-heading {
+        align-items: flex-start;
+    }
+}
+
+
+/* =========================================================
+   CAREERAI360 FINAL PINK THEME OVERRIDES
+   These rules intentionally come last to override earlier
+   blue/green colors in the stylesheet.
+   ========================================================= */
+
+:root {
+    --pink-50: #fff7fb;
+    --pink-100: #ffeaf3;
+    --pink-200: #ffd2e4;
+    --pink-300: #ffb4d0;
+    --pink-500: #ed4f91;
+    --pink-600: #d9367b;
+    --pink-700: #a91f59;
+    --pink-text: #6b2445;
+    --pink-border: #f4d5e2;
+}
+
+body,
+.main-area {
+    background: #fff7fb !important;
+    color: #34243a !important;
+}
+
+.sidebar {
+    background: linear-gradient(180deg, #fff1f7 0%, #ffe6f0 100%) !important;
+    border-right-color: #f4d5e2 !important;
+}
+
+.logo-icon,
+.btn,
+button,
+input[type="submit"],
+button[type="submit"] {
+    background: linear-gradient(135deg, #f36ca5, #d9367b) !important;
+    color: #ffffff !important;
+}
+
+.logo-name,
+.page-heading h1,
+.dashboard-header h1,
+h1, h2, h3, h4,
+.section-heading h2,
+.snapshot h2,
+.roadmap-title h3,
+.card h2,
+.card h3 {
+    color: #672344;
+}
+
+.topbar {
+    background: #ffffff !important;
+    border-bottom-color: #f4d5e2 !important;
+}
+
+.card,
+.roadmap-card,
+.note-card,
+.course-card,
+.career-card,
+.skill-card,
+.form-card,
+.match-box,
+.interview-card,
+.roadmap-step,
+.progress-box,
+.auth-card {
+    background: #ffffff !important;
+    border-color: #f3dce6 !important;
+    box-shadow: 0 7px 24px rgba(164, 57, 105, 0.055);
+    border-radius: 14px;
+}
+
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    background: #c92e70 !important;
+}
+
+.btn-secondary,
+.btn-light {
+    background: #ffffff !important;
+    color: #c42f72 !important;
+    border: 1px solid #f2a6c7 !important;
+}
+
+.sidebar-menu a:hover,
+.profile-link:hover,
+.sidebar-menu a.active {
+    background: #ffe0ed !important;
+    color: #a91f59 !important;
+}
+
+.progress-line,
+.progress-box,
+.progress-bar {
+    background: #ffe0ed !important;
+}
+
+.progress-fill,
+.progress-bar .progress-fill {
+    background: linear-gradient(90deg, #f47aad, #d9367b) !important;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+.roadmap-number,
+.step-number,
+.attention-icon {
+    background: #ffe5f0 !important;
+    color: #c42f72 !important;
+}
+
+.badge {
+    background: #ffe5f0 !important;
+    color: #9d1c55 !important;
+}
+
+.step-pending {
+    background: #fff0f6 !important;
+    color: #9d1c55 !important;
+    border: 1px solid #f6c5da;
+}
+
+.success-message {
+    color: #a91f59 !important;
+}
+
+input,
+select,
+textarea {
+    background: #ffffff !important;
+    color: #34243a !important;
+    border-color: #e9cbd9 !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #ed72a6 !important;
+    outline: 3px solid #ffe0ed !important;
+}
+
+table th {
+    background: #fff0f6 !important;
+    color: #672344 !important;
+}
+
+table td,
+table th {
+    border-color: #f4dce7 !important;
+}
+
+.site-footer {
+    background: #ffffff !important;
+    border-top-color: #f4d5e2 !important;
+}
+/* TEMPORARY CSS LOADING TEST */
+body {
+    background-color: #ffe4ec !important;
+}
+
+.sidebar {
+    background-color: #f8bbd0 !important;
+}
+
+button,
+.btn,
+.logout-button {
+    background-color: #e75480 !important;
+    color: white !important;
+}
+body {
+    background: #ffe4ec !important;
+}
+
+.sidebar {
+    background: #f8bbd0 !important;
+}
+/* Keep Logout visible */
+.sidebar-bottom .logout-button {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 10;
+}
+.roadmap-progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #fce7f3;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.roadmap-progress-fill {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #f472b6, #db2777);
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}

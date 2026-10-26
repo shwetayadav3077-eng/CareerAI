@@ -1,0 +1,394 @@
+{% extends "base.html" %}
+
+{% block title %}Skill Gap - CareerAI360{% endblock %}
+
+{% block content %}
+
+<div class="skill-gap-page">
+
+    <h1>📉 Skill Gap Detector</h1>
+
+    <p class="subtitle">
+        Your current skill level is compared with Advanced level.
+    </p>
+
+    {% if skills %}
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Skill</th>
+                    <th>Category</th>
+                    <th>Current Level</th>
+                    <th>Required Level</th>
+                    <th>Gap</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for skill in skills %}
+
+                <tr>
+
+                    <!-- Skill -->
+                    <td>
+                        <strong>{{ skill.skill_name }}</strong>
+                    </td>
+
+                    <!-- Category -->
+                    <td>
+                        {{ skill.category }}
+                    </td>
+
+                    <!-- Current Level -->
+                    <td>
+                        {{ skill.current }}
+                    </td>
+
+                    <!-- Required Level -->
+                    <td>
+                        {{ skill.required }}
+                    </td>
+
+                    <!-- Gap -->
+                    <td>
+
+                        {% if skill.gap == "High" %}
+
+                        <span class="badge high">
+                            High
+                        </span>
+
+                        {% elif skill.gap == "Medium" %}
+
+                        <span class="badge medium">
+                            Medium
+                        </span>
+
+                        {% else %}
+
+                        <span class="badge no-gap">
+                            No Gap
+                        </span>
+
+                        {% endif %}
+
+                    </td>
+
+                    <!-- Find Courses -->
+                    <td>
+
+                        <a
+                            href="/courses?skill={{ skill.skill_name | urlencode }}"
+                            class="course-btn"
+                        >
+                            📚 Find Courses
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    {% else %}
+
+    <!-- No Skills -->
+
+    <div class="card">
+
+        <h3>No Skills Added</h3>
+
+        <p>
+            Add skills first to see your skill gap.
+        </p>
+
+        <a
+            href="{{ url_for('skills') }}"
+            class="course-btn"
+        >
+            🧩 Add Skills
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+
+<style>
+
+/* ============================= */
+/* MAIN PAGE */
+/* ============================= */
+
+.skill-gap-page {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 30px;
+
+}
+
+
+/* ============================= */
+/* TITLE */
+/* ============================= */
+
+.skill-gap-page h1 {
+
+    color: #0E3440;
+
+    margin-bottom: 8px;
+
+    font-size: 30px;
+
+}
+
+
+.subtitle {
+
+    color: #607078;
+
+    margin-bottom: 25px;
+
+    font-size: 15px;
+
+}
+
+
+/* ============================= */
+/* TABLE CONTAINER */
+/* ============================= */
+
+.table-container {
+
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+
+    overflow-x: auto;
+
+}
+
+
+/* ============================= */
+/* TABLE */
+/* ============================= */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+th {
+
+    background: #0E3440;
+
+    color: white;
+
+    padding: 14px;
+
+    text-align: left;
+
+    font-size: 14px;
+
+}
+
+
+td {
+
+    padding: 14px;
+
+    border-bottom: 1px solid #e5e9ea;
+
+    font-size: 14px;
+
+}
+
+
+tr:hover {
+
+    background: #f4f7f6;
+
+}
+
+
+/* ============================= */
+/* GAP BADGES */
+/* ============================= */
+
+.badge {
+
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+
+/* HIGH */
+
+.high {
+
+    background: #f8d7da;
+
+    color: #842029;
+
+}
+
+
+/* MEDIUM */
+
+.medium {
+
+    background: #fff3cd;
+
+    color: #664d03;
+
+}
+
+
+/* NO GAP */
+
+.no-gap {
+
+    background: #d1e7dd;
+
+    color: #0f5132;
+
+}
+
+
+/* ============================= */
+/* FIND COURSES BUTTON */
+/* ============================= */
+
+.course-btn {
+
+    display: inline-block;
+
+    padding: 9px 15px;
+
+    background: #0E3440;
+
+    color: white !important;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    border: none;
+
+    transition: 0.2s;
+
+}
+
+
+.course-btn:hover {
+
+    background: #35C7A2;
+
+    color: #0E3440 !important;
+
+}
+
+
+/* ============================= */
+/* EMPTY CARD */
+/* ============================= */
+
+.card {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 14px;
+
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+
+}
+
+
+.card h3 {
+
+    color: #0E3440;
+
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 700px) {
+
+    .skill-gap-page {
+
+        padding: 15px;
+
+    }
+
+    .skill-gap-page h1 {
+
+        font-size: 24px;
+
+    }
+
+    th,
+    td {
+
+        padding: 10px;
+
+        font-size: 13px;
+
+    }
+
+    .course-btn {
+
+        padding: 8px 10px;
+
+        font-size: 12px;
+
+    }
+
+}
+
+</style>
+
+{% endblock %}
