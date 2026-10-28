@@ -4,16 +4,6 @@ Discover Your Skills. Identify Your Gaps. Build Your Career.
 
 CareerAI360 is a web-based career guidance platform designed to help students identify their skills, understand skill gaps, explore career opportunities, and follow a structured learning roadmap.
 
-🌐 Live Website
-
-👉 [Visit CareerAI360](https://careerai-3vjl.onrender.com)
-
- Scan to Visit the Website
-
-![CareerAI360 QR Code](CareerAI360_QR_Code.png)
-
-Scan the QR code using your phone camera to open CareerAI360.
-
 ✨ Key Features
 
 - 📊 **Dashboard:** View career development information.
